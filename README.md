@@ -1,13 +1,13 @@
 # Projeto
 
-Crawler para leitura da URL https://revistaautoesporte.globo.com/rss/ultimas/feed.xml conforme padrão exigido no desafio da infoblogo na url https://github.com/Infoglobo/desafio-back-end
+Crawler para extração de dados da URL https://revistaautoesporte.globo.com/rss/ultimas/feed.xml conforme solicitado no desafio da infoblogo na url https://github.com/Infoglobo/desafio-back-end.
 
 # Configuração
 
-## Pré-requisitos
-- Python3
-- Docker
-
+* Pré-requisitos
+  * Python3
+  * Docker
+  
 Execute os comando abaixo para execução do projeto.
 
 ```
@@ -17,21 +17,21 @@ Execute os comando abaixo para execução do projeto.
 # pip install -r requirements.txt
 # python manage.py runserver
 ```
+Com isso já será possivel acessar a URL http://127.0.0.1:8000 é ver a interface de manipulação REST conforme imagem abaixo.
 
-Para acesso a api é necessário que reseja realizada a criação de um usuário, execute o comando abaixo no seu terminal para criação de um super user.
+![alt text](https://i.ibb.co/NLjtnSq/api-infoglobo.jpg)
+
+Para acesso a api é necessário que seja realizada a criação de um usuário, execute o comando abaixo no seu terminal para criação de um superuser.
 ```
 # python manage.py createsuperuser
 ```
 
 # Crawler
 
-Para extrair o json do crawler execute o comando abaixo. Ele criará um arquivo com o nome infoglobo.jsonlines contendo a extração e também irá inserir os mesmo dados no banco do mongoDB.
+Para extrair o json do crawler execute o comando abaixo. Ele criará um arquivo com o nome infoglobo.jsonlines contendo os dados extraidos. 
 ```
 scrapy runspider infoglobo\crawling\crawler.py -o infoglobo.jsonlines
 ```
-
-Ao acessar a url http://127.0.0.1:8000 voce sera redirecionado para a pagina abaixo onde consegue manipular a API REST atraves de uma interface.
-
-![alt text](https://i.ibb.co/NLjtnSq/api-infoglobo.jpg)
+Além da criação do arquivo, o script **crawler.py** realiza a inserção dos dados extraidos no banco de dados do mongoDB (crawler.feed) anteriormente criado via docker-compose, tornando viavel a manipulação dele atrávez da API REST citada acima.
 
 
