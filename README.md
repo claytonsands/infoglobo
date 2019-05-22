@@ -18,6 +18,13 @@ Execute os comando abaixo para execução do projeto.
 # python manage.py runserver
 ```
 
+Para acesso a api é necessário que reseja realizada a criação de um usuário, execute o comando abaixo no seu terminal para criação de um super user.
+```
+# python manage.py createsuperuser
+```
+
+# Crawler
+
 Para extrair o json do crawler execute o comando abaixo. Ele criará um arquivo com o nome infoglobo.jsonlines contendo a extração e também irá inserir os mesmo dados no banco do mongoDB.
 ```
 scrapy runspider infoglobo\crawling\crawler.py -o infoglobo.jsonlines
@@ -25,9 +32,6 @@ scrapy runspider infoglobo\crawling\crawler.py -o infoglobo.jsonlines
 
 Ao acessar a url http://127.0.0.1:8000 voce sera redirecionado para a pagina abaixo onde consegue manipular a API REST atraves de uma interface.
 
-![alt text](https://i.ibb.co/ZBhvXgg/api-infoglobo.jpg)
+![alt text](https://i.ibb.co/NLjtnSq/api-infoglobo.jpg)
 
-Para acesso a api é necessário que reseja realizada a criação de um usuário, execute o comando abaixo no seu terminal para criação de um super user.
-```
-# python manage.py createsuperuser
-```
+
