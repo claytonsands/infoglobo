@@ -25,7 +25,7 @@ scrapy runspider infoglobo\crawling\crawler.py -o infoglobo.jsonlines
 
 Ao acessar a url http://127.0.0.1:8000 voce sera redirecionado para a pagina abaixo onde consegue manipular a API REST atraves de uma interface.
 
-![alt text](https://ibb.co/Vgvb9CC)
+![alt text](https://i.ibb.co/ZBhvXgg/api-infoglobo.jpg)
 
 Para acesso a api é necessário que reseja realizada a criação de um usuário, execute o comando abaixo no seu terminal para criação de um super user.
 ```
