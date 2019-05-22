@@ -2,6 +2,7 @@
 import scrapy
 from parsel import Selector
 from bs4 import BeautifulSoup
+from pymongo import MongoClient
 
 
 class InfogloboSpider(scrapy.Spider):
@@ -10,6 +11,8 @@ class InfogloboSpider(scrapy.Spider):
     start_urls = ['https://revistaautoesporte.globo.com/rss/ultimas/feed.xml']
 
     def parse(self, response):
+        client = MongoClient()
+        db = client.crawler
         tag_description = []
         feed = []
         for x in range(0, len(response.xpath("//item"))):
@@ -41,7 +44,9 @@ class InfogloboSpider(scrapy.Spider):
                         'description': tag_description
                     }
                 })
-        return {'feed': feed}
+        result = {'feed': feed}
+        db.feed.insert(result)
+        return result
 
 #scrapy shell https://revistaautoesporte.globo.com/rss/ultimas/feed.xml
 #scrapy runspider crawler\spiders\infoglobo.py -o infoglobo.jsonlines

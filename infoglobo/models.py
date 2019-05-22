@@ -1,13 +1,11 @@
-from django.db import models
+#from django.db import models
+from mongoengine import Document, EmbeddedDocument, fields
 
-class Item(models.Model):
-    objects = None
-    title = models.CharField(max_length=200)
-    link = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
+class ItemInput(EmbeddedDocument):
+    name = fields.StringField(requiredQuerySet=True)
+    value = fields.DynamicField(required=True)
 
-    class Meta:
-        db_table = 'item'
-
-    def __str__(self):
-        return self.title
+class Item(Document):
+    title = fields.StringField(required=True, null=True)
+    link = fields.StringField(required=True, null=True)
+    description = fields.StringField(required=True, null=True)
