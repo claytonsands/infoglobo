@@ -28,10 +28,18 @@ Para acesso a api é necessário que seja realizada a criação de um usuário, 
 
 # Crawler
 
-Para extrair o json do crawler execute o comando abaixo. Ele criará um arquivo com o nome infoglobo.jsonlines contendo os dados extraidos. 
+Para extrair o json do crawler execute o comando abaixo. Ele criará um arquivo com o nome **infoglobo.jsonlines** na raiz do projeto contendo os dados extraidos. 
 ```
 scrapy runspider infoglobo\crawling\crawler.py -o infoglobo.jsonlines
 ```
-Além da criação do arquivo, o script **crawler.py** realiza a inserção dos dados extraidos no banco de dados do mongoDB (crawler.feed) anteriormente criado via docker-compose, tornando viavel a manipulação dele atrávez da API REST citada acima.
+Além da criação do arquivo, o script **crawler.py** realiza a inserção dos dados extraidos no banco de dados do mongoDB (crawler.feed) anteriormente criado via docker-compose, tornando viavel a manipulação dele atrávez da API REST citada acima (EM DESENVOLVIMENTO).
+
+# Test
+
+Para realizar teste execute o comando abaixo.
+```
+python manage.py test
+```
+*PS: Apresentando FAIL em decorrencia de alteração realizada na model para conexão com o mongodb antes inexistente, não foi possivel corrigir por conta do esgotamento do tempo de entrega solicitado.*
 
 
